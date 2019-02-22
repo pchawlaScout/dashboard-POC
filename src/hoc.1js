@@ -1,0 +1,47 @@
+import React, { Component } from 'react';
+
+class hocFunc extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showConst: ''
+        };
+    }
+    state = {
+      showConst: ''
+    };
+
+    handleConst = event => {
+      this.setState({ showConst: event.target.value })
+    };
+
+    render() {
+      return (
+        <div>
+          <div>
+            <input onChange={this.handleConst} value={this.state.showConst} type="text" />
+          </div>
+            <p> {this.state.showConst} </p>
+          <WrappedComponent/>
+        </div>
+      )
+    }
+}
+export default hocFunc
+
+
+
+/*
+// class HOC extends Component{
+//     // hocFunc = (WidgetToWrap) => {
+//     render() {
+//         return (
+//             (
+//                 <div>
+//                     <p> aaaa </p>
+//                     <WidgetToWrap/>
+//                 </div>
+//             )
+//         )}
+// }
+*/
