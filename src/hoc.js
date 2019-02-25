@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {getDataFromServices, updateConfig} from './api.js';
 
-function HocFunc(WrappedComponent) {
+function LoaderHOC(WrappedComponent) {
     return class extends Component {
     getData = (data, identifiers) => {
         return getDataFromServices(data, identifiers);
@@ -36,4 +36,4 @@ function HocOuterControls(WrappedComponent, input, operations) {
             }
         };
 }
-export {HocFunc, HocOuterControls};
+export {LoaderHOC, HocOuterControls};

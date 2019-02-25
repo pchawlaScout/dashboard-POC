@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {MyJobs, JobQuestions} from './widgets.js'
 import {getConfigs} from "./api";
-import {HocFunc, HocOuterControls} from "./hoc.js";
+import {LoaderHOC, HocOuterControls} from "./hoc.js";
 import './App.css';
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
       let operations = {};
       operations.close = this.closeWidget;
       return dataArray.map(widgetData =>
-          HocOuterControls(HocFunc(this.getWidgetComponent(widgetData.widgetType)), widgetData, operations)
+          HocOuterControls(LoaderHOC(this.getWidgetComponent(widgetData.widgetType)), widgetData, operations)
       )
   };
 
