@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {MyJobs, JobQuestions} from './widgets.js'
 import {getConfigs} from "./api";
-import HocFunc from './hoc.js'
+import {HocFunc, HocOuterControls} from "./hoc.js";
 import './App.css';
 
 class App extends Component {
@@ -13,7 +13,8 @@ class App extends Component {
 
   widgetIzer = (dataArray) => {
       return dataArray.map(widgetData =>
-          HocFunc(this.getWidgetComponent(widgetData.widgetType), widgetData))
+          HocOuterControls(HocFunc(this.getWidgetComponent(widgetData.widgetType)), widgetData)
+      )
   };
   render() {
     const widgets = getConfigs();

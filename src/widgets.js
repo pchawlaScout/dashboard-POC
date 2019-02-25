@@ -36,15 +36,11 @@ class JobQuestions extends Component{
         this.setState({question: data.question});
     }
 
-    handleConfigUpdate = () => {
-        this.props.editConfig('updateQuestionsIdentifiers', this.props.config)
-    };
     render() {
         return (
             <div>
                 {this.state.question &&
                 <p>question: {this.state.question}</p>}
-                <button onClick={this.handleConfigUpdate}> Config changed</button>
             </div>
         );
     }
