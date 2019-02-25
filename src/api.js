@@ -8,7 +8,7 @@ const Links = {
 
 
 function getDataFromServices(data, identifiers) {
-    console.log(identifiers);
+    console.log('getting data for: '+identifiers);
     return Links[identifiers];
 }
 
@@ -23,11 +23,10 @@ function getConfigs() {
         ];
     return hardCodedConfigs;
 }
-
-function updateConfig(identifers, config) {
-    console.log('updating config');
-    console.log(config);
-    return Links[identifers]
+// some sort of backend validation on the ID will be necessary
+function updateConfig(identifiers, config) {
+    console.log('updating config, new config:'+ config);
+    return Links[identifiers]
 }
 
 export {

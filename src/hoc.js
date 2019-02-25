@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import {getDataFromServices, updateConfig} from './api.js';
 
 function HocFunc(WrappedComponent, input) {
-    //config save callback
     //state (editing etc)
-    //styling
-    //get data
     return class extends Component {
     editConfig = (identifiers, config) => {
         return updateConfig(identifiers, config);
