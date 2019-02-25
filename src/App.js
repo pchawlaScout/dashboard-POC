@@ -12,9 +12,15 @@ class App extends Component {
   };
 
   widgetIzer = (dataArray) => {
+      let operations = {};
+      operations.close = this.closeWidget;
       return dataArray.map(widgetData =>
-          HocOuterControls(HocFunc(this.getWidgetComponent(widgetData.widgetType)), widgetData)
+          HocOuterControls(HocFunc(this.getWidgetComponent(widgetData.widgetType)), widgetData, operations)
       )
+  };
+
+  closeWidget = (id) => {
+      console.log('closing'+id)
   };
   render() {
     const widgets = getConfigs();

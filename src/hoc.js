@@ -16,10 +16,13 @@ function HocFunc(WrappedComponent) {
   };
 }
 
-function HocOuterControls(WrappedComponent, input) {
+function HocOuterControls(WrappedComponent, input, operations) {
         return class extends Component {
             editWidgetConfig = () => {
                 return updateConfig(input.widgetType, 'editConfig', input);
+            };
+            handleClose = () => {
+                operations.close(input.id);
             };
             render() {
                 return (
@@ -27,6 +30,7 @@ function HocOuterControls(WrappedComponent, input) {
                           <div className="title"> {input.title} </div>
                           <WrappedComponent input={input}/>
                           <button className="edit-button" onClick={this.editWidgetConfig}> Config Changed </button>
+                          <button className="close-button" onClick={this.handleClose}>Close</button>
                       </div>
                 )
             }
