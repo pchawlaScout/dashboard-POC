@@ -1,4 +1,15 @@
+### Dashboard Prototype
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Setup `node` and `npm`
+
+This project requires `node 11.10.0` and `npm 6.7.0`.
+
+use `nvm`: https://github.com/creationix/nvm
+
+`nvm install 11.10.0`
+
+`npm install npm@6.7.0 -g`
 
 ## Available Scripts
 
