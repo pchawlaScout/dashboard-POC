@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {getDataFromServices, updateConfig} from './api.js';
 
 function HocFunc(WrappedComponent, input) {
     //config save callback
@@ -6,14 +7,17 @@ function HocFunc(WrappedComponent, input) {
     //styling
     //get data
     return class extends Component {
-    editConfig = () => {
-        console.log('blah')
+    editConfig = (identifiers, config) => {
+        return updateConfig(identifiers, config);
+    };
+    getData = (data, identifiers) => {
+        return getDataFromServices(data, identifiers);
     };
     render() {
         return (
               <div className="widget-shell" key={input.id}>
                   <div className="title"> {input.title} </div>
-                  <WrappedComponent config={input} configChanges={this.editConfig}/>
+                  <WrappedComponent config={input} editConfig={this.editConfig} getData={this.getData}/>
               </div>
         )
       }

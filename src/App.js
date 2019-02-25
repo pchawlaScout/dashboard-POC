@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Renderer, MyJobs, JobQuestions} from './widgets.js'
+import {MyJobs, JobQuestions} from './widgets.js'
+import {getConfigs} from "./api";
 import HocFunc from './hoc.js'
 import './App.css';
 
@@ -15,13 +16,7 @@ class App extends Component {
           HocFunc(this.getWidgetComponent(widgetData.widgetType), widgetData))
   };
   render() {
-    const widgets = [
-        {widgetType: 'myJobs', title:'you got a job', id: 1, count: 2},
-        {widgetType: 'myJobs', title:'you got a job', id: 2, count: 3},
-        {widgetType: 'myJobs', title:'you got a job', id: 3, count: 4},
-        {widgetType: 'myJobs', title:'you got a job', id: 4, count: 5},
-        {widgetType: 'myJobs', title:'you got a job', id: 5, count: 6}
-        ];
+    const widgets = getConfigs();
     const WidgetComponents = this.widgetIzer(widgets);
 
     return (
